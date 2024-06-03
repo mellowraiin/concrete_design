@@ -102,3 +102,8 @@ def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b, 
         else:
             break
     return diameter, rebar_area, actual_tensile_count, actual_compressive_count, max_count_per_layer
+
+def a_function():
+    print("hello, does this work on GitHub?")
+
+a_function()

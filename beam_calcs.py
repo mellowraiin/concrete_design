@@ -20,7 +20,7 @@ def calculate_a(b, d, fc, ultimate_moment):
 
 def rebar1(ultimate_moment, fy, d, a):
     tensile_steel = abs(ultimate_moment) * 10 ** 6 / (0.9 * fy * (d - a / 2))
-    compressive_steel = tensile_steel / 2
+    compressive_steel = 0
     return tensile_steel, compressive_steel
 
 
@@ -79,7 +79,15 @@ def round_rebar(rebar_count):
     return rebar_count
 
 
-def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b, diameter_list):
+def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b):
+    diameter_list = {10: 0.25 * math.pi * 10 ** 2,
+                     13: 0.25 * math.pi * 13 ** 2,
+                     16: 0.25 * math.pi * 16 ** 2,
+                     19: 0.25 * math.pi * 19 ** 2,
+                     22: 0.25 * math.pi * 22 ** 2,
+                     25: 0.25 * math.pi * 25 ** 2,
+                     29: 0.25 * math.pi * 29 ** 2,
+                     32: 0.25 * math.pi * 32 ** 2}
     while True:
         tensile_rebar_count = tensile_steel / rebar_area
         actual_tensile_count = round_rebar(tensile_rebar_count)
@@ -102,3 +110,4 @@ def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b, 
         else:
             break
     return diameter, rebar_area, actual_tensile_count, actual_compressive_count, max_count_per_layer
+

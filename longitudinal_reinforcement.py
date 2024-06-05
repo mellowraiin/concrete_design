@@ -57,7 +57,7 @@ rebar_area = diameter_list.get(diameter)
 
 (diameter, rebar_area, actual_tensile_count,
  actual_compressive_count, max_count_per_layer) = beam.iterate_diameter(diameter, rebar_area, tensile_steel,
-                                                                   compressive_steel, b, diameter_list)
+                                                                   compressive_steel, b)
 
 print(f"\ndiameter_use = {diameter}")
 print(f"rebar_area = {rebar_area}")
@@ -70,3 +70,12 @@ percent_compressive = round(actual_compressive_count*rebar_area/(b*h)*100,2)
 
 print(f"tensile reinforcement = {actual_tensile_count}D{diameter}, {percent_tensile}%")
 print(f"compressive reinforcement = {actual_compressive_count}D{diameter}, {percent_compressive}%")
+
+# for note, misal buat tumpuan, M+ = smthin, M- = smthin,
+# for each momen, nti dpt tensile&compressive masing"
+# ex: for M+, tensile = 1000 mm2, compressive = 150 mm2
+#     for M-, compressive = 250 mm2, tensile = 2500 mm2
+# jdi di tumpuan, butuh tul. atas 2500+150 mm2 and 1000+250mm2
+# after all dat ditambah, bru di check As min_max and actual reinforcement.
+
+# all of dis buat jaga" if theres cases like yg a > a max where theres compressive reinf.

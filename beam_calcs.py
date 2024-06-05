@@ -87,7 +87,7 @@ def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b, 
         compressive_rebar_count = compressive_steel / rebar_area
         actual_compressive_count = round_rebar(compressive_rebar_count)
 
-        max_count_per_layer = math.floor((b - 60 + 40) / (40 + diameter))
+        max_count_per_layer = math.floor((b - 100 + 40) / (40 + diameter))
 
         if max(actual_tensile_count, actual_compressive_count) > max_count_per_layer * 2:
             index_current_diameter = list(diameter_list).index(diameter)
@@ -102,8 +102,3 @@ def iterate_diameter(diameter, rebar_area, tensile_steel, compressive_steel, b, 
         else:
             break
     return diameter, rebar_area, actual_tensile_count, actual_compressive_count, max_count_per_layer
-
-def a_function():
-    print("hello, does this work on GitHub?")
-
-a_function()

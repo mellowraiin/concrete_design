@@ -70,8 +70,3 @@ percent_compressive = round(actual_compressive_count*rebar_area/(b*h)*100,2)
 
 print(f"tensile reinforcement = {actual_tensile_count}D{diameter}, {percent_tensile}%")
 print(f"compressive reinforcement = {actual_compressive_count}D{diameter}, {percent_compressive}%")
-
-beam.a_function()
-print("this this work also?")
-print("what is this")
-print("testing number 3 :D")

@@ -1,10 +1,5 @@
+from beam_class import *
 
-def x(var1):
-    def y(var2):
-        return var2+1
-    a = y(3)
-    def z(var3):
-        return var3
-    b=z(2)
-    return a+var1+b
+b1= Rebar(400,700,300,420,19,530.38)
 
+print(b1.rebar())

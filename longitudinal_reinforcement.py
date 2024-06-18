@@ -72,7 +72,7 @@ print(f"compressive reinforcement = {actual_compressive_count}D{diameter}, {perc
 # for each momen, nti dpt tensile&compressive masing"
 # ex: for M+, tensile = 1000 mm2, compressive = 150 mm2
 #     for M-, compressive = 250 mm2, tensile = 2500 mm2
-# jdi di tumpuan, butuh tul. atas 2500+150 mm2 and 1000+250mm2
+# jdi di tumpuan, butuh tul. atas 2500+150 mm2 and tul. bawah 1000+250mm2
 # after all dat ditambah, bru di check As min_max and actual reinforcement.
 
 # all of dis buat jaga" if theres cases like yg a > a max where theres compressive reinf.

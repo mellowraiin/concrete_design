@@ -1,5 +1,6 @@
-from beam_class import *
+import math
+from Beam import *
 
-b1= Rebar(400,700,300,420,19,530.38)
+beam = Rebar(400, 700, 30, 420, 22, 487.82)
 
-print(b1.rebar())
+beam.rebar()

@@ -84,3 +84,22 @@ class Rebar(Beam):
             tensile_steel, compressive_steel = rebar2()
 
         return tensile_steel, compressive_steel
+
+    def min_max_area(self):
+        fc = self.fc
+        fy = self.fy
+        b = self.width
+        d = self.depth
+
+        min_rebar_area = max(0.25 * math.sqrt(fc) / fy * b * d, 1.4 / fy * b * d)
+        print(f"min_rebar_area = {min_rebar_area} mm2")
+
+        if fy <= 413.685:
+            max_rebar_area = 0.025 * b * d
+        elif fy > 551.581:
+            max_rebar_area = 0.02 * b * d
+        else:
+            max_rebar_area = (0.025 - 0.05 * (fy - 413.685) / (551.581 - 413.685)) * b * d
+
+        print(f"max_rebar_area = {max_rebar_area} mm2")
+        return min_rebar_area, max_rebar_area

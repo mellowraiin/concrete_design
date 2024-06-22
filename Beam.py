@@ -14,10 +14,7 @@ class Beam:
 class Rebar(Beam):
     def __init__(self, width, height, fc, fy, diameter, moment):
         super().__init__(width, height, fc, fy)
-        self.moment = moment  # if for 1 beam you want to calc END & MID moment, must make list
-        # maybe like self.moments = [MEndTop, MEndBot, MMidTop, MMidBot]
-        # but then maybe must make a function to import from excel.
-        # that's for later, make a function of rebar that return [EndTopAs, EndBotAs, MidTopAs, MidBot,As]
+        self.moment = moment
         self.diameter = diameter
         self.a, self.a_max, self.c_max = self.calculate_a()
 
@@ -82,7 +79,7 @@ class Rebar(Beam):
         else:
             print(f"a > a_max; {self.a} > {self.a_max}\n")
             tensile_steel, compressive_steel = rebar2()
-
+        print(tensile_steel, compressive_steel)
         return tensile_steel, compressive_steel
 
     def min_max_area(self):

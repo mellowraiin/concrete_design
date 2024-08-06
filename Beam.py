@@ -87,9 +87,11 @@ class Rebar(Beam):
         fy = self.fy
         b = self.width
         d = self.depth
+        h = self.height
 
         min_rebar_area = max(0.25 * math.sqrt(fc) / fy * b * d, 1.4 / fy * b * d)
-        print(f"min_rebar_area = {min_rebar_area} mm2")
+        min_rebar_area = round(min_rebar_area, 2)
+        print(f"min_rebar_area = {min_rebar_area}, {round(min_rebar_area/(b*h)*100, 2)}% mm2")
 
         if fy <= 413.685:
             max_rebar_area = 0.025 * b * d
@@ -98,5 +100,7 @@ class Rebar(Beam):
         else:
             max_rebar_area = (0.025 - 0.05 * (fy - 413.685) / (551.581 - 413.685)) * b * d
 
-        print(f"max_rebar_area = {max_rebar_area} mm2")
+        max_rebar_area = round(max_rebar_area, 2)
+
+        print(f"max_rebar_area = {max_rebar_area}, {round(max_rebar_area/(b*h)*100, 2)}% mm2")
         return min_rebar_area, max_rebar_area

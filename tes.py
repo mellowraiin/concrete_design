@@ -1,6 +1,6 @@
 from Beam import *
 
-b1= Rebar(400,400,17.5,420,16,16)
+b1= Rebar(250,550,25,420,19,16)
 
 print(b1.rebar())
 
